@@ -34,7 +34,7 @@ const Heading = () => {
         scrolled && "border-b shadow-sm",
       )}
     >          <Button variant="outline" size="lg" asChild>
-        <Link href="/james-webb-telescope"> Explore the James Webb Telescope</Link>
+        <Link href="/james-webb-telescope">Explore the James Webb Telescope</Link>
       </Button>
       <div className="flex w-full items-center gap-x-4 px-4">
       <h1><Telescope size={36} /></h1>
@@ -47,16 +47,15 @@ const Heading = () => {
                   <Button variant="ghost" size="icon">
                   <RefreshCcw />
                   </Button>
+                   <Link href="/practice">
                   <Button variant="ghost" size="icon">
                   <Telescope />
-                  </Button>
-
+                  </Button></Link>
+                  <Button variant="ghost" size="icon"><CircleHelp /></Button>
 
       {/* <DialogTrigger asChild>
         <HowToPlay  mode="modal">
-                      <Button variant="ghost" size="icon">
-                <CircleHelp />
-            </Button>
+                      <Button variant="ghost" size="icon"><CircleHelp /></Button>
         </HowToPlay>
       </DialogTrigger> */}
 
