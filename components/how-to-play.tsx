@@ -22,7 +22,7 @@ export function HowToPlay() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-      <Button variant="ghost" size="icon"><CircleHelp /></Button>
+      <Button variant="ghost" size="icon"><CircleHelp size={30}/></Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

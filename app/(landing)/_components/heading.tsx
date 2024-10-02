@@ -1,32 +1,24 @@
 import { HowToPlay } from "@/components/how-to-play";
 import { Leaderboard } from  "@/components/leaderboard";
 import { PlayMore } from "@/components/play-more";
+import { TeleClick } from "@/components/telescope";
+// import { PlayAgain } from "@/components/play-again";
 import { Telescope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from  "next/image";
 import { useScrollTop } from "@/hooks/useScrollTop";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 
 const Heading = () => {
   const scrolled = useScrollTop();
   return (
       <nav
-      className={`sticky top-0 z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}
-    >      <Button variant="outline" size="lg" asChild>
-        <Link href="/james-webb-telescope">Explore the James Webb Telescope</Link>
-      </Button>
-      <div className="flex w-full items-center gap-x-4 px-3">
-      <h1><Telescope size={36} /></h1>
+      className={`sticky top-0 z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}>
+
+     <TeleClick />
+      <div className="flex w-full items-center gap-x-4 px-3 ml-2">
+      <Telescope size={40} />
       <h1>steller!</h1>
           </div>
           {/* Navbar>>> */}

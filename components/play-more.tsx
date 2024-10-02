@@ -14,7 +14,7 @@ import {
     return (
       <Dialog>
         <DialogTrigger asChild>
-        <Button variant="ghost" size="icon"><Telescope />
+        <Button variant="ghost" size="icon"><Telescope size={30}/>
         </Button>
                   </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">

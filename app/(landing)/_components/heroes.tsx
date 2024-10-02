@@ -7,8 +7,8 @@ const Heroes = () => {
 return (
     // <h1>hello, welcome to steller</h1>
     <div>
-      <h2>Today, I'd like to go from this to this</h2>
-    <div className="grid gap-4 col-span-6 items-center py-4">
+      <h1>Today, I'd like to go from this to this</h1>
+    <div className="items-center py-4">
             <Input
               id="name"
               placeholder="Guess any star..."
@@ -17,6 +17,9 @@ return (
                 Guess
             </Button>
           </div>
+          {/* Get a Hint */}
+          <h2>Get a Hint (0/3)</h2>
+
           </div>
 );
         };

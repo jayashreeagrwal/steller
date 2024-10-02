@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F]">
+    <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F] mt-2">
         {/* <Separator className="my-4" /> */}
         <Button variant="link" size="default">
         &#169; 2024 steller!
@@ -20,7 +20,7 @@ const Footer = () => {
     </footer>
   );
 };
-
+export default Footer;
 
 
 
@@ -41,5 +41,3 @@ const Footer = () => {
 // </div>
 //  );
 // };
-
-export default Footer;
