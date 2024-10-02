@@ -75,4 +75,3 @@ export function HowToPlay() {
     </Dialog>
   );
 };
-// export default HowToPlay;

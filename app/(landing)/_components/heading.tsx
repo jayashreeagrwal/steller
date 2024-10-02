@@ -1,9 +1,7 @@
-
-
 import { HowToPlay } from "@/components/how-to-play";
-// import { Learderboard } from  "@/components/leaderboard";
-// import { PlayMore } from "@/components/play-more";
-import { Telescope, Award, CircleHelp, RefreshCcw } from "lucide-react";
+import { Leaderboard } from  "@/components/leaderboard";
+import { PlayMore } from "@/components/play-more";
+import { Telescope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -19,12 +17,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-
-
 const Heading = () => {
   const scrolled = useScrollTop();
   return (
-<nav
+      <nav
       className={`sticky top-0 z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}
     >      <Button variant="outline" size="lg" asChild>
         <Link href="/james-webb-telescope">Explore the James Webb Telescope</Link>
@@ -35,19 +31,18 @@ const Heading = () => {
           </div>
           {/* Navbar>>> */}
           <div className="flex w-full items-center justify-between gap-x-2 md:ml-auto md:justify-end">
+            <Leaderboard />
+            <PlayMore />
+            <HowToPlay />
+          </div>
+        </nav>
+          );
+        };
 
-                  <Dialog>
-                  <DialogTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                  <Award />
-                  </Button>
-                  </DialogTrigger>
-                  {/* Content */}
-                  </Dialog>
+export default Heading;
 
 
-
-                  {/* Reload
+  {/* Reload
                   <Dialog>
                   <DialogTrigger asChild>
                   <Button variant="ghost" size="icon">
@@ -57,23 +52,3 @@ const Heading = () => {
                   Content
                   </Dialog>
                   Reload End */}
-
-
-                  {/* Play More */}
-                  <Dialog>
-                  <DialogTrigger asChild>
-                  <Button variant="ghost" size="icon"><Telescope />
-                  </Button>
-                  </DialogTrigger>
-                        {/* Content  */}
-                  </Dialog>
-                  
-                  <HowToPlay />
-
-
-          </div>
-        </nav>
-          );
-        };
-
-export default Heading;

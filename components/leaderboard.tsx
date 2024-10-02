@@ -1,4 +1,5 @@
-// import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import {Award} from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -6,16 +7,17 @@ import {
     // DialogFooter,
     DialogHeader,
     DialogTitle,
-    // DialogTrigger,
+    DialogTrigger,
   } from "@/components/ui/dialog"
-
 
   export const Leaderboard = () => {
     return (
       <Dialog>
-        {/* <DialogTrigger asChild>
-          <Button variant="outline">How to Play</Button>
-        </DialogTrigger> */}
+        <DialogTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                  <Award />
+                  </Button>
+                  </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>steller!</DialogTitle>
@@ -32,4 +34,3 @@ import {
       </Dialog>
     );
   };
-  // export default Leaderboard;
