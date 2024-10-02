@@ -1,4 +1,5 @@
-// import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import {CircleHelp} from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +7,7 @@ import {
   // DialogFooter,
   DialogHeader,
   DialogTitle,
-  // DialogTrigger,
+  DialogTrigger,
 } from "@/components/ui/dialog"
 import {
   Accordion,
@@ -15,12 +16,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-export const HowToPlay = () => {
+
+
+export function HowToPlay() {
   return (
     <Dialog>
-      {/* <DialogTrigger asChild>
-        <Button variant="outline">How to Play</Button>
-      </DialogTrigger> */}
+      <DialogTrigger asChild>
+      <Button variant="ghost" size="icon"><CircleHelp /></Button>
+      </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>How to play</DialogTitle>
@@ -28,16 +31,22 @@ export const HowToPlay = () => {
             Name the stars in a constellation to navigate from the Starting Point to the Ending Point. Try to get there in the fewest guesses!
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-6 items-center gap-4">
 
 {/* Accordion */}
-
+<div className="grid gap-4 py-4">
           <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger>Scoring</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+        Scoring is based on all stars you&apos;ve already guessed, and whether your guess gets you closer to a solution.
+        <br></br>        <br></br>
+        For a perfect score, guess the shortest path (fewest stars) in order from the Starting Point to the Ending Point.
+        <br></br>        <br></br>
+        You get +2 points for each star you guess, that is on the shortest path.
+        <br></br>        <br></br>
+        You get +1 point for each star you guess, that is not on the shortest path but gets you closer to the solution.
+        <br></br>        <br></br>
+        No points for stars that are not on the shortest path and do not get you closer to the solution.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
@@ -55,11 +64,10 @@ export const HowToPlay = () => {
         </AccordionContent>
       </AccordionItem>
     </Accordion>
+    </div>
 {/* Accordian End */}
 
 
-          </div>
-        </div>
         {/* <DialogFooter>
           <Button type="submit">Save changes</Button>
         </DialogFooter> */}

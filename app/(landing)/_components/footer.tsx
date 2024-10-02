@@ -11,7 +11,7 @@ const Footer = () => {
         </Button>
       <div className="flex w-full items-center gap-x-2 text-muted-foreground md:ml-auto md:justify-end">
         <Button variant="ghost" size="default">
-          Privacy Policy
+          Terms of Use
         </Button>
         <Button variant="ghost" size="default">
         Buy me a Coffee
