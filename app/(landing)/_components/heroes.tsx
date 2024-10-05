@@ -173,7 +173,6 @@ const Heroes = () => {
           />
           <Button variant="outline" size="lg" type="submit" className="ml-2">Guess</Button>
         </form>
-
         <div className="flex justify-center items-center mt-4">
           {hearts}
         </div>
@@ -184,7 +183,6 @@ const Heroes = () => {
 };
 
 export default Heroes;
-
 
 
 
