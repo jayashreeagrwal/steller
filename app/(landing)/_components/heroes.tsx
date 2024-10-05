@@ -1,6 +1,5 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Game from "./game";
 import  Reload from "@/components/new-game";
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
@@ -38,46 +37,13 @@ const Heroes = () => {
 
   const series: any[] = pointsData;
 
-  useEffect(
-    () => {
-      fetch('https://vercelsteller.vercel.app/newGame', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ constID: "Cancer" })
-      })
-      .then(response =>
-        response.json()
-        .then(
-          data => {
-            setConstID(data.constID)
-            setStart(data.start)
-            setEnd(data.end)
-            setLife(data.life)
-            setPoints(data.point)
-            setExplored(data.explored)
-            setUnexplored(data.unexplored)
-            setGraph(data.node)
-          }
-        )
-      )
-    },
-    []
-  )
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch('https://vercelsteller.vercel.app/guess', {
+  const newGameRequest = () => {
+    fetch('https://vercelsteller.vercel.app/newGame', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(
-        { 
-          constID: "Cancer" 
-        }
-      )
+      body: JSON.stringify({ constID: "Cancer" })
     })
     .then(response =>
       response.json()
@@ -94,9 +60,69 @@ const Heroes = () => {
         }
       )
     )
+  }
+
+  const reset = () => {
+    setStart("")
+    setEnd("");
+    setLife(0);
+    setPoints(0);
+    setExplored([]);
+    setUnexplored([])
+    setGraph([])
+    newGameRequest()
+
+  }
+
+  useEffect(
+    () => newGameRequest(),
+    []
+  )
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetch('https://vercelsteller.vercel.app/guess', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        { 
+          "choice": inputValue,
+            "constID": constId,
+            "explored": explored,
+            "unexplored": unexplored,
+            "start": start,
+            "end": end,
+            "life": life
+        }
+      )
+    })
+    .then(response =>
+      response.json()
+      .then(
+        data => {
+
+          setLife(data.life)
+          if(life == 0){
+            alert("You died")
+            reset()
+          }else{
+            if(data["msg"] == "Congratulations, You won!"){
+              alert("Congratulations, You won!")
+              reset()
+            }else{
+              alert(data["msg"])
+            }
+          }
+          setExplored(data["explored"])
+          setUnexplored(data["unexplored"])
+        }
+      )
+    )
   };
 
-  for(var x = 0; x < life; x+=1){
+  for(var x = -1; x < life; x+=1){
     hearts.push(
       <Heart style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
     )
