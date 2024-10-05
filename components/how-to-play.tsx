@@ -4,7 +4,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  // DialogFooter,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -59,8 +59,9 @@ export function HowToPlay() {
       <AccordionItem value="item-3">
         <AccordionTrigger>Credits & Thanks</AccordionTrigger>
         <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
+          Steller! uses: Nasa Datasets, Tailwind CSS with Shadcn Library for layout and UI design, recharts for graphic rendering and Lucide for Icons.
+          <br></br><br></br>
+          Steller! was designed and developed as a part of the Nasa Space Apps Challenge 2024, by Jayashree Agarwal, Jeswin Johnson and Siddhi Dorepalli.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -68,9 +69,10 @@ export function HowToPlay() {
 {/* Accordian End */}
 
 
-        {/* <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter> */}
+        <DialogFooter>
+          Want to know more? Check out the extra info and FAQ page
+          <Button variant="outline">FAQ</Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

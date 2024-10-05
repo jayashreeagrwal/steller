@@ -7,14 +7,19 @@ import Game from "./_components/game";
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-full flex-col ">
-      <div className="flex flex-1 flex-col items-center justify-center gap-y-8 px-6 pb-2 text-center md:justify-start">
+    // <div className="w-full" style={{ backgroundImage: "url(/image.png)" }}>
+    <div className="flex flex-col w-full" >
+      {/* <div className="flex flex-col items-center gap-y-4 px-6 pb-2 text-center"> */}
         <Heading />
-        <Game />
+        {/* <h1 className="py-3 mt-4" style={{ fontSize: "24px" }}>Today, I'd like to go from
+        <span style={{color:'#de89a1'}}> Star 1</span> to <span style={{color:'#97d6cf'}}> Star 2</span>
+          </h1>
+        <Game /> */}
+        {/* </div> */}
         <Heroes />
-      </div>
       <Footer />
     </div>
+    // </div>
   );
 }
 
