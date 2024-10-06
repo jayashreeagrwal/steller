@@ -20,7 +20,7 @@ import {
                   </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Steller!</DialogTitle>
+            <DialogTitle>Stellar!</DialogTitle>
             <DialogDescription>
               Name the stars in a constellation to navigate from the Starting Point to the Ending Point. Try to get there in the fewest guesses!
             </DialogDescription>

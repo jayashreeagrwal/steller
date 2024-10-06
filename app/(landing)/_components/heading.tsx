@@ -19,7 +19,7 @@ const Heading = () => {
       className={`sticky dark:bg-[#0A0A0A] top-0 z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}>
       <div className="flex w-full items-center gap-x-4 px-3">
       <Telescope size={40} />
-      <h1 style={{fontSize: "26px"}}>Steller!</h1>
+      <h1 style={{fontSize: "26px"}}>Stellar!</h1>
           </div>
           <TeleClick />
           {/* Navbar>>> */}

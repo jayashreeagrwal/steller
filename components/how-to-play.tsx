@@ -59,9 +59,9 @@ export function HowToPlay() {
       <AccordionItem value="item-3">
         <AccordionTrigger>Credits & Thanks</AccordionTrigger>
         <AccordionContent>
-          Steller! uses: Nasa Datasets, Tailwind CSS with Shadcn Library for layout and UI design, recharts for graphic rendering and Lucide for Icons.
+          Stellar! uses: Nasa Datasets, Tailwind CSS with Shadcn Library for layout and UI design, recharts for graphic rendering and Lucide for Icons.
           <br></br><br></br>
-          Steller! was designed and developed as a part of the Nasa Space Apps Challenge 2024, by Jayashree Agarwal, Jeswin Johnson and Siddhi Dorepalli.
+          Stellar! was designed and developed as a part of the Nasa Space Apps Challenge 2024, by Jayashree Agarwal, Jeswin Johnson and Siddhi Dorepalli.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

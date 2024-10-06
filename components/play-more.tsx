@@ -16,18 +16,17 @@ import {
     return (
       <Dialog>
         <DialogTrigger asChild>
-        <Button variant="ghost" size="icon"><Telescope size={30}/>
-        </Button>
-                  </DialogTrigger>
+          <Button variant="ghost" size="icon"><Telescope size={30}/></Button>
+        </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Steller! game modes</DialogTitle>
+            <DialogTitle>Stellar! game modes</DialogTitle>
             <DialogDescription>
             </DialogDescription>
           </DialogHeader>
           <div>
             <div>
-              Play more of Steller! in the practice mode or try the weekly challenge.
+              Play more of Stellar! in the practice mode or try the weekly challenge.
             </div>
           </div>
           {/* <DialogFooter>

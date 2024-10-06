@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F] mt-2">
         {/* <Separator className="my-4" /> */}
         <Button variant="link" size="default">
-        &#169; 2024 Steller!
+        &#169; 2024 Stellar!
         </Button>
       <div className="flex w-full items-center gap-x-2 text-muted-foreground md:ml-auto md:justify-end">
         <Button variant="ghost" size="default">

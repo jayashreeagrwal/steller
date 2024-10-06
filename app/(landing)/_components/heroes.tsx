@@ -25,7 +25,7 @@ const Heroes = () => {
   const [end, setEnd] = useState("");
   const [life, setLife] = useState(0);
   const [point, setPoints] = useState(0);
-  const [explored, setExplored] = useState([]);
+  const [explored, setExplored] = useState([""]);
   const [unexplored, setUnexplored] = useState([]);
   const [pointsData, setGraph] = useState([]);
   var hearts = [];
@@ -44,7 +44,7 @@ const Heroes = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ constID: "Cancer" })
+      body: JSON.stringify({ constID: "Cassiopeia" })
     })
     .then(response =>
       response.json()
@@ -83,39 +83,35 @@ const Heroes = () => {
   const lineRender = () => {
     var renderList: React.JSX.Element[] = []
 
-    if (life < 3) {
-      series.map((s) => {
-        if (s.data) { // assuming you want to check if s.data is truthy
-          renderList.push(
-            <Line
-              dataKey="y"
-              data={s.data}
-              type="monotone"
-              dot={<CustomizedDot />}
-              strokeWidth={3}
-              strokeDasharray=""
-              name={s.name}
-              key={s.name}
-            />
-          )
-        }
-      })
-    } else {
-      series.map((s) => {
+    series.map((s) => {
+      if (explored.includes(s["data"][0]["name"].replace(" ", "").toLowerCase()) && explored.includes(s["data"][1]["name"].replace(" ", "").toLowerCase())) { // assuming you want to check if s.data is truthy
         renderList.push(
           <Line
             dataKey="y"
             data={s.data}
             type="monotone"
-            dot={<CustomizedDot />}
+            dot={<CustomizedDot start={start} end={end}/>}
             strokeWidth={3}
-            strokeDasharray=" 5 5"
+            strokeDasharray=""
             name={s.name}
             key={s.name}
           />
         )
-      })
-    }
+      }else{
+        renderList.push(
+          <Line
+            dataKey="y"
+            data={s.data}
+            type="monotone"
+            dot={<CustomizedDot end={end} start={start}/>}
+            strokeWidth={3}
+            strokeDasharray="5 5"
+            name={s.name}
+            key={s.name}
+          />
+        )
+      }
+    })
 
     return renderList
   }
@@ -146,16 +142,13 @@ const Heroes = () => {
 
           setLife(data.life)
           if(life == 0){
-            return(
-              <YouLost />
-            )
             reset()
           }else{
             if(data["msg"] == "Congratulations, You won!"){
-              alert("Congratulations, You won!")
               reset()
             }else{
-              alert(data["msg"])
+              YouLost()
+              // alert(data["msg"])
             }
           }
           setExplored(data["explored"])
@@ -178,7 +171,7 @@ const Heroes = () => {
 
   return (
 
-    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
 
       <h1 className="py-3 mt-4" style={{ fontSize: "24px" }}>Today, I'd like to go from
         <span style={{color:'#de89a1'}}> {start} </span> to <span style={{color:'#97d6cf'}}> {end} </span>

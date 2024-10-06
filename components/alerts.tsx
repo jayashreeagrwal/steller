@@ -7,7 +7,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  // AlertDialogTrigger,
+  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 // import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -15,13 +15,10 @@ import Link from "next/link"
 
 export function YouLost() {
   return (
-    <AlertDialog>
-      {/* <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-      </AlertDialogTrigger> */}
+    <AlertDialog open={true}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Steller!</AlertDialogTitle>
+          <AlertDialogTitle>Stellar!</AlertDialogTitle>
           <AlertDialogDescription>
             You lost! The shortest solution to the problem was startPoint&gt;star1&gt;star2&gt;endPoint
           </AlertDialogDescription>
