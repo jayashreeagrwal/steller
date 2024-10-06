@@ -10,7 +10,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card"
-
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   ChartConfig,
   ChartContainer,
@@ -213,7 +213,12 @@ const Heroes = () => {
         <div className="flex justify-center items-center mt-4">
           {hearts}
         </div>
-
+        <div>
+          Get a Hint (1/3)
+        <Skeleton className="h-6 w-[450px] mb-2" />
+        <Skeleton className="h-6 w-[450px] mb-2" />
+        <Skeleton className="h-6 w-[450px] mb-2" />
+        </div>
       </div>
     </div>
   );
