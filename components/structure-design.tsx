@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-  } from "@/components/ui/drawer"
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/Dialog"
 //   import {
 //     Carousel,
 //     CarouselContent,
@@ -27,24 +27,21 @@ import {
 
   export const Structure = () => {
     return (
-    <Drawer>
-  <DrawerTrigger asChild>
+    <Dialog>
+  <DialogTrigger asChild>
             <Button variant="ghost">
                   Learn More
             </Button>
-  </DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
-    </DrawerHeader>
-    <DrawerFooter>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>This action cannot be undone.</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
       <Button>Submit</Button>
-      <DrawerClose>
-        <Button variant="outline">Cancel</Button>
-      </DrawerClose>
-    </DrawerFooter>
-  </DrawerContent>
-</Drawer>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
   );
 };
