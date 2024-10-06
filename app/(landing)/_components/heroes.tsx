@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { YouLost } from "@/components/alerts";
 import  Reload from "@/components/new-game";
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
@@ -79,6 +80,46 @@ const Heroes = () => {
     []
   )
 
+  const lineRender = () => {
+    var renderList: React.JSX.Element[] = []
+
+    if (life < 3) {
+      series.map((s) => {
+        if (s.data) { // assuming you want to check if s.data is truthy
+          renderList.push(
+            <Line
+              dataKey="y"
+              data={s.data}
+              type="monotone"
+              dot={<CustomizedDot />}
+              strokeWidth={3}
+              strokeDasharray=""
+              name={s.name}
+              key={s.name}
+            />
+          )
+        }
+      })
+    } else {
+      series.map((s) => {
+        renderList.push(
+          <Line
+            dataKey="y"
+            data={s.data}
+            type="monotone"
+            dot={<CustomizedDot />}
+            strokeWidth={3}
+            strokeDasharray=" 5 5"
+            name={s.name}
+            key={s.name}
+          />
+        )
+      })
+    }
+
+    return renderList
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch('https://vercelsteller.vercel.app/guess', {
@@ -105,7 +146,9 @@ const Heroes = () => {
 
           setLife(data.life)
           if(life == 0){
-            alert("You died")
+            return(
+              <YouLost />
+            )
             reset()
           }else{
             if(data["msg"] == "Congratulations, You won!"){
@@ -145,15 +188,9 @@ const Heroes = () => {
         <CardContent className="p-8">
           <ChartContainer config={chartConfig}>
           <LineChart width={500} height={500} className='flex w-full'>
-            {/* <CartesianGrid strokeDasharray="3 3" style={{ display: 'none' }}/> */}
             <XAxis dataKey="x" style={{ display: 'none' }} allowDuplicatedCategory={false} />
             <YAxis dataKey="y" style={{ display: 'none' }} allowDuplicatedCategory={false} />
-            {/* <Tooltip /> */}
-            {/* <Legend /> */}
-            {series.map((s) => (
-            <Line dataKey="y" data={s.data} type="monotone" dot={<CustomizedDot />} strokeDasharray="5 5" stroke="#979C98" name={s.name} key={s.name} />
-              // <Line dataKey="y" data={s.data} type="monotone" dot={<CustomizedDot />} strokeWidth={3} strokeDasharray="5 5" name={s.name} key={s.name} />
-            ))}
+            {lineRender()}
           </LineChart>
           </ChartContainer>
         </CardContent>
