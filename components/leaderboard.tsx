@@ -4,11 +4,13 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    // DialogFooter,
+    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+import { Skeleton } from "@/components/ui/skeleton"
+ 
 
   export const Leaderboard = () => {
     return (
@@ -17,16 +19,71 @@ import {
                   <Button variant="ghost" size="icon">
                   <Award size={30}/>
                   </Button>
-                  </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        </DialogTrigger>
+        <DialogContent>
           <DialogHeader>
             <DialogTitle>Stellar!</DialogTitle>
             <DialogDescription>
-              Name the stars in a constellation to navigate from the Starting Point to the Ending Point. Try to get there in the fewest guesses!
+              Todays Leaderboard.
             </DialogDescription>
           </DialogHeader>
-          <div>
-          </div>
+            {/* <div>
+      <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div></div>
+        <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div></div>
+        <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div></div>
+        <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div></div>
+        <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div></div>
+    </div>
+            <div>
+                 <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="w-8 h-[250px]" />
+        <Skeleton className="w-8 h-[200px]" />
+        <Skeleton className="w-8 h-[200px]" />
+        <Skeleton className="w-8 h-[200px]" />
+        <Skeleton className="w-8 h-[200px]" />
+        <Skeleton className="w-8 h-[200px]" />
+      </div></div>
+</div>
+                 <div className="flex items-center space-x-4">
+      <Skeleton className="h-20 w-20 rounded-full" />
+      <Skeleton className="h-8 w-20" />           
+      <div className="space-y-2">
+        <Skeleton className="h-20 w-20 rounded-full" />
+      <Skeleton className="h-8 w-20" /> 
+          <div className="space-y-2">
+        <Skeleton className="h-20 w-20 rounded-full" />
+      <Skeleton className="h-8 w-20" />
+      </div>
+                     
+            </div>
+          </div> */}
           {/* <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter> */}

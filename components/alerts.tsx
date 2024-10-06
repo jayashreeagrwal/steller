@@ -7,15 +7,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 // import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-
 export function YouLost() {
   return (
-    <AlertDialog open={true}>
+    <AlertDialog>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Stellar!</AlertDialogTitle>

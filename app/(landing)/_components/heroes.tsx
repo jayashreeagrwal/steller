@@ -1,16 +1,32 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { YouLost } from "@/components/alerts";
-import  Reload from "@/components/new-game";
+// import { YouLost } from "@/components/alerts.tsx";
+// import DropdownInput from 'react-dropdown-input';
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
 import CustomizedDot  from  "@/components/custom-dot";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { Check } from "lucide-react"
+import { cn } from "@/lib/utils"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
 import {
   Card,
   CardContent,
 } from "@/components/ui/card"
-
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   ChartConfig,
   ChartContainer,
@@ -19,6 +35,7 @@ import {
 } from "@/components/ui/chart"
 
 const Heroes = () => {
+  const [open, setOpen] = React.useState(false)
   const [inputValue, setInputValue] = useState("");
   const [constId, setConstID] = useState("");
   const [start, setStart] = useState("");
@@ -79,6 +96,29 @@ const Heroes = () => {
     () => newGameRequest(),
     []
   )
+
+  const frameworks = [
+    {
+      value: "caph",
+      label: "Caph",
+    },
+    {
+      value: "schedar",
+      label: "Schedar",
+    },
+    {
+      value: "gammacassiopeiae",
+      label: "Gamma Cassiopeiae",
+    },
+    {
+      value: "ruchbah",
+      label: "Ruchbah",
+    },
+    {
+      value: "segin",
+      label: "Segin",
+    },
+  ]
 
   const lineRender = () => {
     var renderList: React.JSX.Element[] = []
@@ -142,13 +182,13 @@ const Heroes = () => {
 
           setLife(data.life)
           if(life == 0){
+            alert("Game Over")
             reset()
           }else{
             if(data["msg"] == "Congratulations, You won!"){
               reset()
             }else{
-              YouLost()
-              // alert(data["msg"])
+              alert(data["msg"])
             }
           }
           setExplored(data["explored"])
@@ -169,6 +209,14 @@ const Heroes = () => {
     )
   }
 
+  var starNames = [
+    "caph",
+    "schedar",
+    "gammacassiopeiae",
+    "ruchbah",
+    "segin"
+]
+
   return (
 
       <div className="flex flex-col items-center justify-center">
@@ -176,7 +224,6 @@ const Heroes = () => {
       <h1 className="py-3 mt-4" style={{ fontSize: "24px" }}>Today, I'd like to go from
         <span style={{color:'#de89a1'}}> {start} </span> to <span style={{color:'#97d6cf'}}> {end} </span>
       </h1>
-
       <Card className="w-[550px]">
         <CardContent className="p-8">
           <ChartContainer config={chartConfig}>
@@ -195,18 +242,77 @@ const Heroes = () => {
       <div className="flex flex-col items-center w-full max-w-sm mb-4">
 
         <form onSubmit={handleSubmit} className="flex items-center">
-          <Input type="text"
+          {/* <Input type="text"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             placeholder="Guess any star..."
             className="w-full"
-          />
+          /> */}
+          <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+      <Input
+      type="text"
+      value={inputValue}
+      onChange={(event) => setInputValue(event.target.value)}
+      placeholder={
+        inputValue
+          ? frameworks.find((framework) => framework.value === inputValue)?.label
+          : "Guess any star..."
+      }
+      className="w-[200px] justify-between"
+      aria-expanded={open}
+    />
+        {/* <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
+          {value
+            ? frameworks.find((framework) => framework.value === value)?.label
+            : "Select framework..."}
+        </Button> */}
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandInput placeholder="Search framework..." />
+          <CommandList>
+            <CommandEmpty>No star found.</CommandEmpty>
+            <CommandGroup>
+              {frameworks.map((framework) => (
+                <CommandItem
+                  key={framework.value}
+                  value={framework.value}
+                  onSelect={(currentValue) => {
+                    setInputValue(currentValue === inputValue ? "" : currentValue)
+                    setOpen(false)
+                  }}
+                >
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      inputValue === framework.value ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                  {framework.label}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
           <Button variant="outline" size="lg" type="submit" className="ml-2">Guess</Button>
         </form>
-        <div className="flex justify-center items-center mt-4">
+        <div className="flex justify-center items-center p-5 mb-5">
           {hearts}
         </div>
-
+        <div>
+          Get a Hint (1/3)
+        <Skeleton className="h-6 w-[450px] mt-4" />
+        <Skeleton className="h-6 w-[450px] mt-4" />
+        <Skeleton className="h-6 w-[450px] mt-4" />
+        </div>
       </div>
     </div>
   );
