@@ -11,6 +11,7 @@ import {
 
   export const Leaderboard = () => {
     return (
+      <div>
       <Dialog>
         <DialogTrigger asChild>
                   <Button variant="ghost" size="icon">
@@ -86,5 +87,6 @@ import {
           </DialogFooter> */}
         </DialogContent>
       </Dialog>
+      </div>
     );
   };

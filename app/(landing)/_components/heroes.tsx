@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 // import { YouLost } from "@/components/alerts.tsx";
 // import DropdownInput from 'react-dropdown-input';
 import React, { useState, useEffect } from 'react';
@@ -21,12 +22,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-
 import {
   Card,
   CardContent,
 } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
 import {
   ChartConfig,
   ChartContainer,
