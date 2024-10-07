@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+// import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -7,7 +7,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { Button } from "@/components/ui/button";
 import '@/public/telescope.css';
 import Link  from 'next/link';
-import Image  from 'next/image';
+// import Image  from 'next/image';
 
 
 

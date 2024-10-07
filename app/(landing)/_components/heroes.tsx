@@ -38,7 +38,7 @@ const Heroes = () => {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [life, setLife] = useState(0);
-  const [point, setPoints] = useState(0);
+  const [, setPoints] = useState(0);
   const [explored, setExplored] = useState([""]);
   const [unexplored, setUnexplored] = useState([]);
   const [pointsData, setGraph] = useState([]);

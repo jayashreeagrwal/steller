@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const Reload = () => {
 
-  const [data, setdata] = useState({
+  const [, setdata] = useState({
       constID: "",
   });
 
