@@ -223,7 +223,7 @@ return renderList
       </Card>
 
       <h1 className="pt-2 mb-1" style={{ fontSize: "20px" }}>This is <span style={{color:'#E8AF1B'}}>{constId}</span></h1>
-      <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point&period;&period;&period;</h1>
+      <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point&#46; &#46; &#46; </h1>
 
       <div className="flex flex-col items-center w-full max-w-sm mb-4">
 
