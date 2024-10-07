@@ -117,29 +117,28 @@ const Heroes = () => {
   ]
 
   const lineRender = () => {
-  const renderList: React.JSX.Element[] = []
-
+    const renderList: React.JSX.Element[] = []
     series.map((s) => {
-      if (explored.includes(s["data"][0]["name"].replace(" ", "").toLowerCase()) && explored.includes(s["data"][1]["name"].replace(" ", "").toLowerCase())) { // assuming you want to check if s.data is truthy
+      if (explored.includes(s["data"][0]["name"].replace(" ", "").toLowerCase()) && explored.includes(s["data"][1]["name"].replace(" ", "").toLowerCase())) {
         renderList.push(
           <Line
             dataKey="y"
             data={s.data}
             type="monotone"
-            dot={<CustomizedDot start={start} end={end}/>}
+            dot={<CustomizedDot cx={0} cy={0} payload={s.data[0]} start={start} end={end}/>}
             strokeWidth={3}
             strokeDasharray=""
             name={s.name}
             key={s.name}
           />
         )
-      }else{
+      } else {
         renderList.push(
           <Line
             dataKey="y"
             data={s.data}
             type="monotone"
-            dot={<CustomizedDot end={end} start={start}/>}
+            dot={<CustomizedDot cx={0} cy={0} payload={s.data[0]} end={end} start={start}/>}
             strokeWidth={3}
             strokeDasharray="5 5"
             name={s.name}
@@ -148,8 +147,7 @@ const Heroes = () => {
         )
       }
     })
-
-    return renderList
+return renderList
   }
 
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
