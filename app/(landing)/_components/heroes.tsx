@@ -247,7 +247,7 @@ return renderList
         <Command>
           <CommandInput placeholder="Guess any star..." />
           <CommandList>
-            <CommandEmpty>No star found&period;</CommandEmpty>
+            <CommandEmpty>No star found&#46;</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem

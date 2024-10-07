@@ -8,7 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
-
+  import { Skeleton } from "@/components/ui/skeleton";
   export const Leaderboard = () => {
     return (
       <div>
@@ -25,64 +25,47 @@ import {
               Todays Leaderboard.
             </DialogDescription>
           </DialogHeader>
-            {/* <div>
-      <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
+
+    <div className="flex items-center space-x-4">
+      <Skeleton
+        className="h-12 w-12 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-pulse"
+      />
       <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div></div>
-        <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div></div>
-        <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div></div>
-        <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div></div>
-        <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div></div>
-    </div>
-            <div>
-                 <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="w-8 h-[250px]" />
-        <Skeleton className="w-8 h-[200px]" />
-        <Skeleton className="w-8 h-[200px]" />
-        <Skeleton className="w-8 h-[200px]" />
-        <Skeleton className="w-8 h-[200px]" />
-        <Skeleton className="w-8 h-[200px]" />
-      </div></div>
-</div>
-                 <div className="flex items-center space-x-4">
-      <Skeleton className="h-20 w-20 rounded-full" />
-      <Skeleton className="h-8 w-20" />           
-      <div className="space-y-2">
-        <Skeleton className="h-20 w-20 rounded-full" />
-      <Skeleton className="h-8 w-20" /> 
-          <div className="space-y-2">
-        <Skeleton className="h-20 w-20 rounded-full" />
-      <Skeleton className="h-8 w-20" />
+        <Skeleton
+          className="h-4 w-80 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded"
+        />
+        <Skeleton
+          className="h-4 w-60 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded"
+        />
       </div>
-                     
-            </div>
-          </div> */}
-          {/* <DialogFooter>
+    </div>
+    <div className="flex items-center space-x-4">
+      <Skeleton
+        className="h-12 w-12 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-pulse"
+      />
+      <div className="space-y-2">
+        <Skeleton
+          className="h-4 w-80 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded"
+        />
+        <Skeleton
+          className="h-4 w-60 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded"
+        />
+      </div>
+    </div>
+    <div className="flex items-center space-x-4">
+      <Skeleton
+        className="h-12 w-12 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-pulse"
+      />
+      <div className="space-y-2">
+        <Skeleton
+          className="h-4 w-80 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded"
+        />
+        <Skeleton
+          className="h-4 w-60 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded"
+        />
+      </div>
+    </div>
+              {/* <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter> */}
         </DialogContent>
