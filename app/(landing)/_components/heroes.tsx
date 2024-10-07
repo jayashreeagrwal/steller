@@ -45,8 +45,7 @@ const Heroes = () => {
   const hearts = [];
   const chartConfig = {
     desktop: {
-      label: "Desktop",
-      color: "hsl(var(--chart-1))",
+      label: "Stars",
     },
   } satisfies ChartConfig
 
@@ -195,12 +194,12 @@ const Heroes = () => {
     )
   };
 
-  for(var x = -1; x < life; x+=1){
+  for(let x = -1; x < life; x+=1){
     hearts.push(
       <Heart style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
     )
   }
-  for(var x = 0; x < (4 - life); x+=1){
+  for(let x = 0; x < (4 - life); x+=1){
     hearts.push(
       <HeartOff style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
     )
@@ -226,7 +225,7 @@ const Heroes = () => {
       </Card>
 
       <h1 className="pt-2 mb-1" style={{ fontSize: "20px" }}>This is <span style={{color:'#E8AF1B'}}>{constId}</span></h1>
-      <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point</h1>
+      <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point&period;&period;&period;</h1>
 
       <div className="flex flex-col items-center w-full max-w-sm mb-4">
 
@@ -250,7 +249,7 @@ const Heroes = () => {
         <Command>
           <CommandInput placeholder="Guess any star..." />
           <CommandList>
-            <CommandEmpty>No star found.</CommandEmpty>
+            <CommandEmpty>No star found&period;</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem
