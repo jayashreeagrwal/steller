@@ -152,7 +152,7 @@ const Heroes = () => {
     return renderList
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     fetch('https://vercelsteller.vercel.app/guess', {
       method: 'POST',
