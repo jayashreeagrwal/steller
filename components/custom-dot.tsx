@@ -1,5 +1,5 @@
-const CustomizedDot = (props, start, end) => {
-    const { cx, cy, name} = props;
+const CustomizedDot = (props) => {
+    const { cx, cy } = props;
   
     if (props["payload"]["name"].replace(" ", "").toLowerCase() == props["start"].replace(" ", "").toLowerCase()) {
       return (

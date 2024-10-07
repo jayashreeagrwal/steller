@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
 import CustomizedDot  from  "@/components/custom-dot";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { LineChart, Line, XAxis, YAxis} from 'recharts';
 import { Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -30,8 +30,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 const Heroes = () => {
@@ -45,7 +43,7 @@ const Heroes = () => {
   const [explored, setExplored] = useState([""]);
   const [unexplored, setUnexplored] = useState([]);
   const [pointsData, setGraph] = useState([]);
-  var hearts = [];
+  const hearts = [];
   const chartConfig = {
     desktop: {
       label: "Desktop",
@@ -121,7 +119,7 @@ const Heroes = () => {
   ]
 
   const lineRender = () => {
-    var renderList: React.JSX.Element[] = []
+  const renderList: React.JSX.Element[] = []
 
     series.map((s) => {
       if (explored.includes(s["data"][0]["name"].replace(" ", "").toLowerCase()) && explored.includes(s["data"][1]["name"].replace(" ", "").toLowerCase())) { // assuming you want to check if s.data is truthy
@@ -209,14 +207,6 @@ const Heroes = () => {
     )
   }
 
-  var starNames = [
-    "caph",
-    "schedar",
-    "gammacassiopeiae",
-    "ruchbah",
-    "segin"
-]
-
   return (
 
       <div className="flex flex-col items-center justify-center">
@@ -242,12 +232,6 @@ const Heroes = () => {
       <div className="flex flex-col items-center w-full max-w-sm mb-4">
 
         <form onSubmit={handleSubmit} className="flex items-center">
-          {/* <Input type="text"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-            placeholder="Guess any star..."
-            className="w-full"
-          /> */}
           <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
       <Input
@@ -262,20 +246,10 @@ const Heroes = () => {
       className="w-[200px] justify-between"
       aria-expanded={open}
     />
-        {/* <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-[200px] justify-between"
-        >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
-        </Button> */}
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
+          <CommandInput placeholder="Guess any star..." />
           <CommandList>
             <CommandEmpty>No star found.</CommandEmpty>
             <CommandGroup>
@@ -319,107 +293,3 @@ const Heroes = () => {
 };
 
 export default Heroes;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Input } from "@/components/ui/input";
-// import { Button } from "@/components/ui/button";
-// import Game from "./game";
-// import  Reload from "@/components/new-game";
-// import React, { useState, useEffect } from 'react';
-// // import { Form } from "@/components/ui/form";
-// import { Heart, HeartOff } from "lucide-react";
-
-
-// const Heroes = () => {
-//   const [points, setPoints] = useState(0);
-//   const [life, setLife] = useState(0);
-//   const [explored, setExplored] = useState([]);
-//   const [unexplored, setUnexplored] = useState([]);
-//   const [constID, setConstID] = useState("");
-//   const [start, setStart] = useState("");
-//   const [end, setEnd] = useState("");
-//   const [message, setMessage] = useState("");
-//   const [inputValue, setInputValue] = useState("");
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     if (start !== "" && end !== "") {
-//       fetch('/guess', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//           choice: inputValue,
-//           constID: constID,
-//           explored: explored,
-//           unexplored: unexplored,
-//           start: start,
-//           end: end,
-//           life: life
-//         })
-//       })
-//       .then(response => response.json())
-//       .then(data => {
-//         setPoints(points + data.points);
-//         setLife(data.life);
-//         if (data.life < 1) {
-//           alert("You Lost");
-//         }
-//         if (data.msg === "Congratulations, You won!") {
-//           alert("Congratulations, You won!");
-//         }
-//         setExplored(data.explored);
-//         setUnexplored(data.unexplored);
-//         setMessage(data.msg);
-//       });
-//     } else {
-//       alert("Please Start Game");
-//     }
-//   };
-
-//   return (
-//     <div className="flex flex-col items-center justify-center">
-//       <h1 className="py-3 mt-4" style={{ fontSize: "24px" }}>Today, I'd like to go from
-//         <span style={{color:'#de89a1'}}> Star 1</span> to <span style={{color:'#97d6cf'}}> Star 2</span>
-//           </h1>
-//         <Game />
-//       <h1 className="pt-2 mb-1" style={{ fontSize: "20px" }}>This is <span style={{color:'#E8AF1B'}}>constellationName</span></h1>
-//       <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point</h1>
-//       <div className="flex flex-col items-center w-full max-w-sm mb-4">
-//         <form onSubmit={handleSubmit} className="flex items-center">
-//           <Input type="text"
-//             value={inputValue}
-//             onChange={(event) => setInputValue(event.target.value)}
-//             placeholder="Guess any star..."
-//             className="w-full"
-//           />
-//           <Button variant="outline" size="lg" type="submit" className="ml-2">Guess</Button>
-//         </form>
-//         <div className="flex justify-center items-center mt-4">
-//           <HeartOff style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
-//           <HeartOff style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
-//           <Heart style={{ color: 'red', fontSize: '24px', marginRight: '6px' }} />
-//           <Heart style={{ color: 'red', fontSize: '24px' }} />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Heroes;

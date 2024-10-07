@@ -1,15 +1,10 @@
 import { HowToPlay } from "@/components/how-to-play";
 import { Leaderboard } from  "@/components/leaderboard";
 import { PlayMore } from "@/components/play-more";
-// import  Reload from "@/components/new-game";
 import { TeleClick } from "@/components/telescope";
 
-// import { PlayAgain } from "@/components/play-again";
 import { Telescope, MessageCircleMore } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import Image from  "next/image";
 import { useScrollTop } from "@/hooks/useScrollTop";
 
 const Heading = () => {
