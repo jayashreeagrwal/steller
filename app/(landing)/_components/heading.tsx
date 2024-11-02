@@ -10,12 +10,12 @@ const Heading = () => {
   const scrolled = useScrollTop();
   return (
       <nav
-      className={`sticky dark:bg-[#0A0A0A] top-0 z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}>
-      <div className="flex w-full items-center gap-x-4 px-3">
+      className={`sticky dark:bg-[#0A0A0A] z-50 flex justify-between w-full p-6 ${scrolled ? 'border-b shadow-sm' : ''}`}>
+      <div className="flex w-full items-center gap-x-4 px-2">
       <Telescope size={40} />
       <h1 style={{fontSize: "26px"}}>Stellar!</h1>
           </div>
-          <TeleClick />
+          {/* <TeleClick /> */}
           {/* Navbar>>> */}
           <div className="flex w-full items-center justify-between gap-x-2 md:ml-auto md:justify-end">
             <Leaderboard />

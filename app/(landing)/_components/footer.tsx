@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F] mt-2">
+    <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F] mt-1">
         {/* <Separator className="my-4" /> */}
         <Button variant="link" size="default">
         &#169; 2024 Stellar!
         </Button>
-      <div className="flex w-full items-center gap-x-2 text-muted-foreground md:ml-auto md:justify-end">
+      <div className="flex w-full items-center gap-x-1 text-muted-foreground md:ml-auto md:justify-end">
         <Button variant="ghost" size="default">
           Terms of Use
         </Button>

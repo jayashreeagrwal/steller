@@ -279,9 +279,9 @@ return renderList
         </div>
         <div>
           Get a Hint (1/3)
-        <Skeleton className="h-6 w-[450px] mt-4" />
-        <Skeleton className="h-6 w-[450px] mt-4" />
-        <Skeleton className="h-6 w-[450px] mt-4" />
+        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
+        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded" />
+        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
         </div>
       </div>
     </div>
