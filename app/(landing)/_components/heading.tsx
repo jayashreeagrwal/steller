@@ -1,7 +1,6 @@
 import { HowToPlay } from "@/components/how-to-play";
 import { Leaderboard } from  "@/components/leaderboard";
 import { PlayMore } from "@/components/play-more";
-import { TeleClick } from "@/components/telescope";
 import { Telescope, MessageCircleMore } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollTop } from "@/hooks/useScrollTop";
