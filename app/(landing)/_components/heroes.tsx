@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 // import { YouLost } from "@/components/alerts.tsx";
-// import DropdownInput from 'react-dropdown-input';
+import { ResponsiveContainer } from 'recharts';
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
 import CustomizedDot  from  "@/components/custom-dot";
@@ -85,7 +85,6 @@ const Heroes = () => {
     setUnexplored([])
     setGraph([])
     newGameRequest()
-
   }
 
   useEffect(
@@ -147,8 +146,8 @@ const Heroes = () => {
         )
       }
     })
-return renderList
-  }
+  return renderList
+}
 
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -204,86 +203,101 @@ return renderList
   }
 
   return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center bg-[url('/2.png')] md:bg-[url('/1.png')]">
+ <div className="flex flex-col items-center justify-center px-4">
+  <h1 className="py-3 mt-4 text-lg sm:text-xl md:text-2xl text-center">
+    Today, I'd like to go from
+    <span style={{ color: '#de89a1' }}> {start} </span> to
+    <span style={{ color: '#97d6cf' }}> {end} </span>
+  </h1>
 
-      <div className="flex flex-col items-center justify-center">
+  <Card className="w-full max-w-[550px]">
+    <CardContent className="p-4 sm:p-6 md:p-8">
+      <ChartContainer config={chartConfig}>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart
+          width={500}
+          height={300}
+          className="w-full h-auto"
+        >
+          <XAxis dataKey="x" style={{ display: 'none' }} allowDuplicatedCategory={false} />
+          <YAxis dataKey="y" style={{ display: 'none' }} allowDuplicatedCategory={false} />
+          {lineRender()}
+        </LineChart>
+        </ResponsiveContainer>
+      </ChartContainer>
+    </CardContent>
+  </Card>
 
-      <h1 className="py-3 mt-4" style={{ fontSize: "24px" }}>Today, I'd like to go from
-        <span style={{color:'#de89a1'}}> {start} </span> to <span style={{color:'#97d6cf'}}> {end} </span>
-      </h1>
-      <Card className="w-[550px]">
-        <CardContent className="p-8">
-          <ChartContainer config={chartConfig}>
-          <LineChart width={500} height={500} className='flex w-full'>
-            <XAxis dataKey="x" style={{ display: 'none' }} allowDuplicatedCategory={false} />
-            <YAxis dataKey="y" style={{ display: 'none' }} allowDuplicatedCategory={false} />
-            {lineRender()}
-          </LineChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
+  <h1 className="pt-2 mb-1 text-md sm:text-lg">
+    This is <span style={{ color: '#E8AF1B' }}>{constId}</span>
+  </h1>
+  <h1 className="mb-3 text-sm sm:text-base text-center">
+    Guess the name of the next star to move ahead and reach the end point...
+  </h1>
 
-      <h1 className="pt-2 mb-1" style={{ fontSize: "20px" }}>This is <span style={{color:'#E8AF1B'}}>{constId}</span></h1>
-      <h1 className="mb-3" style={{ fontSize: "15px" }}>Guess the name of the next star to move ahead and reach the end point&#46; &#46; &#46; </h1>
+  <div className="flex flex-col items-center w-full max-w-xs sm:max-w-sm mb-4">
+    <form onSubmit={handleSubmit} className="flex items-center flex-wrap gap-2">
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Input
+            type="text"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+            placeholder={
+              inputValue
+                ? frameworks.find((framework) => framework.value === inputValue)?.label
+                : "Guess any star..."
+            }
+            className="w-[200px]"
+            aria-expanded={open}
+          />
+        </PopoverTrigger>
+        <PopoverContent className="w-[200px] p-0">
+          <Command>
+            <CommandInput placeholder="Guess any star..." />
+            <CommandList>
+              <CommandEmpty>No star found.</CommandEmpty>
+              <CommandGroup>
+                {frameworks.map((framework) => (
+                  <CommandItem
+                    key={framework.value}
+                    value={framework.value}
+                    onSelect={(currentValue) => {
+                      setInputValue(currentValue === inputValue ? "" : currentValue);
+                      setOpen(false);
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        inputValue === framework.value ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                    {framework.label}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+      <Button variant="outline" size="lg" type="submit">
+        Guess
+      </Button>
+    </form>
 
-      <div className="flex flex-col items-center w-full max-w-sm mb-4">
+    <div className="flex justify-center items-center p-5">{hearts}</div>
 
-        <form onSubmit={handleSubmit} className="flex items-center">
-          <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-      <Input
-      type="text"
-      value={inputValue}
-      onChange={(event) => setInputValue(event.target.value)}
-      placeholder={
-        inputValue
-          ? frameworks.find((framework) => framework.value === inputValue)?.label
-          : "Guess any star..."
-      }
-      className="w-[200px] justify-between"
-      aria-expanded={open}
-    />
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput placeholder="Guess any star..." />
-          <CommandList>
-            <CommandEmpty>No star found&#46;</CommandEmpty>
-            <CommandGroup>
-              {frameworks.map((framework) => (
-                <CommandItem
-                  key={framework.value}
-                  value={framework.value}
-                  onSelect={(currentValue) => {
-                    setInputValue(currentValue === inputValue ? "" : currentValue)
-                    setOpen(false)
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      inputValue === framework.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                  {framework.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
-          <Button variant="outline" size="lg" type="submit" className="ml-2">Guess</Button>
-        </form>
-        <div className="flex justify-center items-center p-5 mb-5">
-          {hearts}
-        </div>
-        <div>
-          Get a Hint (1/3)
-        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
-        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded" />
-        <Skeleton className="h-6 w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
-        </div>
-      </div>
+    <div className="text-sm text-center">
+      Get a Hint (1/3)
+      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
+      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded" />
+      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };

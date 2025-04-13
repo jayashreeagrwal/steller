@@ -11,7 +11,7 @@ export default function LandingPage() {
     <div className="flex flex-col w-full" >
         <Heading />
         <Heroes />
-      <Footer />
+        <Footer />
     </div>
     // </div>
   );

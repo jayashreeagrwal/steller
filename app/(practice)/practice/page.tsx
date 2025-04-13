@@ -1,6 +1,5 @@
 const Practice = () => {
-    return (
-        <h2>hello</h2>
-);
+    return;
 };
+
 export default Practice;

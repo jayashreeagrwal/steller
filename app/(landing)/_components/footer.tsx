@@ -4,10 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full items-center justify-between bg-background p-6 dark:bg-[#1F1F1F] mt-1">
-        {/* <Separator className="my-4" /> */}
+    <footer className="z-50 flex w-full items-center justify-between border-t border-[#151F28] bg-background p-3 mt-1">
         <Button variant="link" size="default">
-        &#169; 2024 Stellar!
+        &#169; 2024 Celestral!
         </Button>
       <div className="flex w-full items-center gap-x-1 text-muted-foreground md:ml-auto md:justify-end">
         <Button variant="ghost" size="default">

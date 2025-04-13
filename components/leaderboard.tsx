@@ -14,13 +14,13 @@ import {
       <div>
       <Dialog>
         <DialogTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                  <Award size={30}/>
-                  </Button>
+          <Button variant="ghost" size="icon">
+            <Award size={30}/>
+          </Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Stellar!</DialogTitle>
+            <DialogTitle>Celestral!</DialogTitle>
             <DialogDescription>
               Todays Leaderboard.
             </DialogDescription>

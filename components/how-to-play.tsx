@@ -16,8 +16,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-
-
 export function HowToPlay() {
   return (
     <Dialog>
@@ -33,8 +31,8 @@ export function HowToPlay() {
         </DialogHeader>
 
 {/* Accordion */}
-<div className="grid gap-4 py-4">
-          <Accordion type="single" collapsible className="w-full">
+      <div className="grid gap-4 py-4">
+      <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger>Scoring</AccordionTrigger>
         <AccordionContent>
@@ -49,19 +47,12 @@ export function HowToPlay() {
         No points for stars that are not on the shortest path and do not get you closer to the solution.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Something</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
       <AccordionItem value="item-3">
         <AccordionTrigger>Credits & Thanks</AccordionTrigger>
         <AccordionContent>
-          Stellar! uses: Nasa Datasets, Tailwind CSS with Shadcn Library for layout and UI design, recharts for graphic rendering and Lucide for Icons.
+          Celestral! uses: Nasa Datasets, Tailwind CSS with Shadcn Library for layout and UI design, recharts for graphic rendering and Lucide for Icons.
           <br></br><br></br>
-          Stellar! was designed and developed as a part of the Nasa Space Apps Challenge 2024, by Jayashree Agarwal, Jeswin Johnson and Siddhi Dorepalli.
+          Celestral! was designed and developed as a part of the Nasa Space Apps Challenge 2024, by Jeswin Johnson, Jayashree Agarwal and Siddhi Dorepalli.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
