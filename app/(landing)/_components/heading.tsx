@@ -82,24 +82,45 @@ const Heading = () => {
 
           {/* Right: Mobile Menu Trigger */}
           <div className="md:hidden">
-            <Drawer>
-              <DrawerTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu size={28} />
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <div className="flex flex-col items-center justify-center gap-4 py-6">
-                  <Leaderboard /> 
-                  <Button variant="ghost" size="icon">
-                    <MessageCircleMore size={30} />
-                  </Button>
-                  <PlayMore />
-                  <HowToPlay />
-                </div>
-              </DrawerContent>
-            </Drawer>
-          </div>
+  <Drawer>
+    <DrawerTrigger asChild>
+      <Button variant="ghost" size="icon">
+        <Menu size={28} />
+      </Button>
+    </DrawerTrigger>
+
+    <DrawerContent>
+      <div className="flex flex-col items-center justify-center gap-4 py-6 text-center text-sm">
+        {/* Leaderboard with label */}
+        <div className="flex flex-col items-center gap-1">
+          <Leaderboard />
+          <span>Leaderboard</span>
+        </div>
+
+        {/* Feedback icon with label */}
+        <div className="flex flex-col items-center gap-1">
+          <Button variant="ghost" size="icon">
+            <MessageCircleMore size={30} />
+          </Button>
+          <span>Feedback</span>
+        </div>
+
+        {/* Play More with label */}
+        <div className="flex flex-col items-center gap-1">
+          <PlayMore />
+          <span>Play More</span>
+        </div>
+
+        {/* How to Play with label */}
+        <div className="flex flex-col items-center gap-1">
+          <HowToPlay />
+          <span>How to Play</span>
+        </div>
+      </div>
+    </DrawerContent>
+  </Drawer>
+</div>
+
         </div>
       </nav>
     </TooltipProvider>
