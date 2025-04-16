@@ -205,7 +205,7 @@ const Heroes = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center bg-[url('/2.png')] md:bg-[url('/1.png')]">
  <div className="flex flex-col items-center justify-center px-4">
-  <h1 className="py-3 mt-4 text-lg sm:text-xl md:text-2xl text-center">
+  <h1 className="py-3 mt-0 text-lg sm:text-xl md:text-2xl text-center">
     Today, I'd like to go from
     <span style={{ color: '#de89a1' }}> {start} </span> to
     <span style={{ color: '#97d6cf' }}> {end} </span>
@@ -216,8 +216,8 @@ const Heroes = () => {
       <ChartContainer config={chartConfig}>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart
-          width={500}
-          height={300}
+          width={400}
+          height={240}
           className="w-full h-auto"
         >
           <XAxis dataKey="x" style={{ display: 'none' }} allowDuplicatedCategory={false} />

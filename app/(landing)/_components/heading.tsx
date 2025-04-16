@@ -1,59 +1,109 @@
-import { HowToPlay } from "@/components/how-to-play";
-import { Leaderboard } from  "@/components/leaderboard";
-import { PlayMore } from "@/components/play-more";
-import { Telescope, MessageCircleMore } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useScrollTop } from "@/hooks/useScrollTop";
+"use client";
 
+import { useState } from "react";
+import {
+  Telescope,
+  MessageCircleMore,
+  Menu,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { HowToPlay } from "@/components/how-to-play";
+import { Leaderboard } from "@/components/leaderboard";
+import { PlayMore } from "@/components/play-more";
+import { useScrollTop } from "@/hooks/useScrollTop";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Heading = () => {
   const scrolled = useScrollTop();
+
   return (
-    <nav
-      className={`sticky border-b border-[#151F28] z-50 w-full p-3 ${
-        scrolled ? 'border-b shadow-sm' : ''
-      }`}
-    >
-      {/* Title Section */}
-      <div className="flex flex-col items-center md:flex-row md:justify-between w-full gap-4">
-        {/* Title */}
-        <div className="flex items-center gap-x-2">
-          <Telescope size={35} />
-          <h1 style={{ fontSize: '22px', textAlign: 'center' }}>Celestral!</h1>
-        </div>
+    <TooltipProvider>
+      <nav
+        className={`sticky border-b border-[#151F28] z-50 w-full p-3 bg-background ${
+          scrolled ? "border-b shadow-sm" : ""
+        }`}
+      >
+        {/* Top Row */}
+        <div className="flex items-center justify-between w-full">
+          {/* Left: Logo */}
+          <div className="flex items-center gap-x-2">
+            <Telescope size={35} />
+            <h1 className="text-xl font-semibold">Celestral!</h1>
+          </div>
 
-        {/* Buttons Section (for large screens, remains inline with the title) */}
-        <div className="hidden md:flex items-center gap-4">
-          <Leaderboard />
-          <Button variant="ghost" size="icon">
-            <MessageCircleMore size={30} />
-          </Button>
-          <PlayMore />
-          <HowToPlay />
-        </div>
-      </div>
+          {/* Right: Desktop Buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <Leaderboard />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>Leaderboard</TooltipContent>
+            </Tooltip>
 
-      {/* Buttons Section for Small Screens */}
-      <div className="flex md:hidden items-center justify-center gap-4 mt-4">
-        <Leaderboard />
-        <Button variant="ghost" size="icon">
-          <MessageCircleMore size={30} />
-        </Button>
-        <PlayMore />
-        <HowToPlay />
-      </div>
-    </nav>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <MessageCircleMore size={30} />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Feedback</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <PlayMore />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>Play More</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <HowToPlay />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>How to Play</TooltipContent>
+            </Tooltip>
+          </div>
+
+          {/* Right: Mobile Menu Trigger */}
+          <div className="md:hidden">
+            <Drawer>
+              <DrawerTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu size={28} />
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="flex flex-col items-center justify-center gap-4 py-6">
+                  <Leaderboard /> 
+                  <Button variant="ghost" size="icon">
+                    <MessageCircleMore size={30} />
+                  </Button>
+                  <PlayMore />
+                  <HowToPlay />
+                </div>
+              </DrawerContent>
+            </Drawer>
+          </div>
+        </div>
+      </nav>
+    </TooltipProvider>
   );
 };
-export default Heading;
 
-                  {/* Reload
-                  <Dialog>
-                  <DialogTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                  <RefreshCcw />
-                  </Button>
-                  </DialogTrigger>
-                  Content
-                  </Dialog>
-                  Reload End */}
+export default Heading;
