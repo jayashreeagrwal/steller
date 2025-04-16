@@ -1,42 +1,26 @@
-// import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full items-center justify-between border-t border-[#151F28] bg-background p-3 mt-1">
-        <Button variant="link" size="default">
-        &#169; 2024 Celestral!
+    <footer className="z-50 w-full border-t border-[#151F28] bg-background px-4 py-3 mt-1">
+      <div className="flex flex-col gap-2 items-center justify-between md:flex-row">
+        {/* Left: Copyright */}
+        <Button variant="link" size="default" className="text-sm">
+          &#169; 2024 Celestral!
         </Button>
-      <div className="flex w-full items-center gap-x-1 text-muted-foreground md:ml-auto md:justify-end">
-        <Button variant="ghost" size="default">
-          Terms of Use
-        </Button>
-        <Button variant="ghost" size="default">
-        Buy me a Coffee
-        </Button>
+
+        {/* Right: Links */}
+        <div className="flex flex-col gap-1 items-center md:flex-row md:gap-x-3 text-muted-foreground">
+          <Button variant="ghost" size="sm">
+            Terms of Use
+          </Button>
+          <Button variant="ghost" size="sm">
+            Buy me a Coffee
+          </Button>
+        </div>
       </div>
     </footer>
   );
 };
+
 export default Footer;
-
-
-
-// const Footer = () => {
-//   return (
-//     <div className="mt-1">
-//     <Separator className="my-4" />
-//         <div className="items-center w-full p-6 bg-background z-50">
-// <div className="justify-between row">
-// <div className="grid-cols-4">
-// &#169; 2024 steller!
-// </div>
-// <div className="grid-cols-4">
-// <Button variant="link">buy me a coffee</Button>
-// </div>
-// </div>
-// </div>
-// </div>
-//  );
-// };
