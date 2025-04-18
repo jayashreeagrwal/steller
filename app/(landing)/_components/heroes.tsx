@@ -1,7 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-// import { YouLost } from "@/components/alerts.tsx";
 import { ResponsiveContainer } from 'recharts';
 import React, { useState, useEffect } from 'react';
 import { Heart, HeartOff } from "lucide-react";
@@ -291,9 +290,9 @@ const Heroes = () => {
 
     <div className="text-sm text-center">
       Get a Hint (1/3)
-      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
-      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded" />
-      <Skeleton className="h-6 w-full max-w-[450px] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
+      <Skeleton className="h-6 w-full max-w-[450] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
+      <Skeleton className="h-6 w-full max-w-[450] mt-4 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500 rounded" />
+      <Skeleton className="h-6 w-full max-w-[450] mt-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded" />
     </div>
   </div>
 </div>
