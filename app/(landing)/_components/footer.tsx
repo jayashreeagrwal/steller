@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="flex flex-col gap-2 items-center justify-between md:flex-row">
         {/* Left: Copyright */}
         <Button variant="link" size="default" className="text-sm">
-          &#169; 2024 Celestral!
+          &#169; 2026 Celestral!
         </Button>
 
         {/* Right: Links */}
